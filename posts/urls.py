@@ -7,7 +7,8 @@ from .models import Post
 urlpatterns = [
     url(r'^edit-post/(?P<pk>\d+$)',views.editPost),
     url(r'^create-post/',views.createPost),
-    url(r'^create',views.create),
+    url(r'^create/',views.create),
+    url(r'delete/(?P<pk>\d+$)',views.delete),
     url(r'^edit/',views.edit),
     url(r'(?P<pk>\d+$)', views.showPost),
     url(r'^$',views.showAll),

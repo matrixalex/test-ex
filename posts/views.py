@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404, render_to_response
+from django.shortcuts import render, get_object_or_404, render_to_response, redirect
 from django.template import loader
 from django.template.context_processors import csrf
 import datetime
@@ -77,3 +77,8 @@ def create(request):
         #print("\n\n\n\n\n OFOFOF \n\n\n\n")
         return showAll(request)
     else: return render_to_response('posts/create-post.html',context=args)
+
+def delete(request,pk):
+    post = Post.objects.get(pk=pk)
+    post.delete()
+    return redirect('../')

@@ -6,7 +6,7 @@
     {%if user is not None%}
         {%if post.author == user.username or user.is_staff or user.is_superuser%}
             <a href="/posts/edit-post/{{post.id}}">Править</a>
-
+            <a href="/posts/delete/{{post.id}}">Удалить</a>
         {%endif%}
     {%endif%}
     <br>Автор: {{post.author}}
