@@ -1,0 +1,13 @@
+{% extends "posts/post-wrapper.html" %}
+{% block content %}
+    <h4 class="text-info">{{post.title}}</h4>
+    <h6 class="text-info">Дата: {{post.date|date:"Y-m-d"}}</h6>
+    {{post.text|safe|linebreaks}}
+    {%if user is not None%}
+        {%if post.author == user.username or user.is_staff or user.is_superuser%}
+            <a href="/posts/edit-post/{{post.id}}">Править</a>
+
+        {%endif%}
+    {%endif%}
+    <br>Автор: {{post.author}}
+{% endblock %}

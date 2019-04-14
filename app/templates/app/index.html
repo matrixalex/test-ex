@@ -1,0 +1,13 @@
+{% extends "app/wrapper.html" %}
+{% block content %}
+{%if request.user.is_authenticated%}
+        <a href="/auth/logout/" class="btn btn-success btn-lg" style="margin-right: 10px; margin-top: 10px;">Выход({{user.username}})</a>
+        {%elif not user%}
+        <label>Юзера нет???</label>
+        {%else%}
+
+            <a href="/auth/registration-page/" class="btn btn-success btn-lg" style="margin-right: 10px; margin-top: 10px;" >Регистрация</a>
+            <a href="/auth/login-page/" class="btn btn-primary btn-lg" style="margin-right: 10px; margin-top: 10px;">Войти &raquo;</a>
+    {%endif%}
+{% csrf_token %}
+{% endblock %}

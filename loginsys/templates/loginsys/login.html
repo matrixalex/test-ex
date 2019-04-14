@@ -1,0 +1,30 @@
+{%extends 'loginsys/wrapper.html'%}
+
+
+{%block content%}
+<div style="width: 200px; margin-left: auto; margin-right:auto; margin-top: 100px;">
+  <a href="/auth/registration/" class="float-right btn btn-outline-primary">Sign up</a>
+    <h4 class="card-title mb-4 mt-1">Sign in</h4>
+	 <form action="/auth/login/" method="post">
+         {% csrf_token %}
+    <div class="form-group">
+    	<label>Your username</label>
+        <input name="username" class="form-control" placeholder="Email" type="username">
+    </div>
+    <div class="form-group">
+    	<a class="float-right" href="#">Forgot?</a>
+    	<label>Your password</label>
+        <input name="password" class="form-control" placeholder="******" type="password">
+    </div>
+    <div class="form-group">
+    {% if error %}
+        <div>
+            <label>{{error}}</label>
+        </div>
+    {%endif%}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Login  </button>
+    </div>
+    </form>
+    </div>
+{%endblock%}

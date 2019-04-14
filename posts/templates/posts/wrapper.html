@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>App</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}" type="text/css">
+</head>
+<body>
+
+  <div class="jumbotron">
+    <div class="container">
+      {%if request.user.is_authenticated%}
+      <h1>Вот и посты</h1>
+        {%for post in posts%}
+          <div class ="container" style="border-style: solid; margin-top: 5px;">
+            <a href = "/posts/{{post.id}}"><h4>{{post.title}}</h4></a>
+            <h5>{{post.date|date:"d-m-Y"}}</h5>
+          </div>
+        {%endfor%}
+
+            <br><a href = "/posts/create-post/"><h4>Написать пост</h4></a>
+      {%else%}
+      <div class="jumbotron">
+      <div class="container">
+        <p>Просмотр постов неавторизованными пользователями запрещен
+          <br><a href="/auth/login-page/">Войти</a>
+        </p>
+      </div>
+      </div>
+      {%endif%}
+
+    </div>
+  </div>
+
+
+
+</body>
+</html>

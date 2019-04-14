@@ -1,0 +1,20 @@
+{%extends 'posts/post-wrapper.html'%}
+
+{%block content%}
+    <div style="width: 400px; margin-left: auto; margin-right:auto; margin-top: 100px;">
+        <form action="/posts/edit/" method="post">
+            {%csrf_token%}
+        <label>Заголовок</label>
+        <input name="title" class="form-control" type="title" value="{{post.title}}">
+        <label>Текст</label>
+        <textarea name="text" class="form-control">{{post.text}}</textarea>
+        <button type="submit" class="btn btn-primary btn-block">Подтвердить</button>
+    
+
+            <input name="id" value="{{post.id}}" style="display: none;">
+            {%if error%}
+            <label>Ошибка</label>
+            {%endif%}
+        </form>
+    </div>
+{%endblock%}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>App</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}" type="text/css">
+</head>
+<body>
+  <div class="header" style="height: 100px;">
+    <div class="text-right">
+    {% block content %}
+    
+    {% endblock %}
+    </div>
+  </div>
+  <div class="jumbotron">
+    <div class="container">
+      <p>
+        <a href="/posts/" class="btn btn-primary btn-lg">К постам</a>
+      </p>
+    </div>
+  </div>
+  <div class="container">
+    <img src="{% static 'app/image/pic.png' %}" style="width:200px; height:200px" class="img-thumbnail">
+  </div>
+</body>
+</html>
